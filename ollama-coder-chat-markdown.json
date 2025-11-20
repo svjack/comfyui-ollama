@@ -1,0 +1,573 @@
+{
+  "id": "2fc5bd74-80b8-4b09-b39b-8c2b9c5e8bdb",
+  "revision": 0,
+  "last_node_id": 67,
+  "last_link_id": 72,
+  "nodes": [
+    {
+      "id": 47,
+      "type": "OllamaConnectivityV2",
+      "pos": [
+        623.0760057471249,
+        -578.3194683908005
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "connection",
+          "type": "OLLAMA_CONNECTIVITY",
+          "links": [
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "b916c54577cf45c8a259d1ecb5c85c64d07a4e81",
+        "Node name for S&R": "OllamaConnectivityV2",
+        "aux_id": "stavsap/comfyui-ollama",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "http://127.0.0.1:11434",
+        "gpt-oss-20b-heretic:latest",
+        0,
+        "minutes",
+        null
+      ]
+    },
+    {
+      "id": 61,
+      "type": "StringConcatenate",
+      "pos": [
+        69.29710021364926,
+        -261.78615280297373
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "StringConcatenate"
+      },
+      "widgets_values": [
+        "",
+        "上面是 给出的工作流调用方法和说明 \n下面给你一个新的工作流内容",
+        ""
+      ]
+    },
+    {
+      "id": 59,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        61.744440156178335,
+        55.24752923725086
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            67
+          ]
+        }
+      ],
+      "title": "新工作流内容",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "{\n  \"11\": {\n    \"inputs\": {\n      \"model_name\": \"umt5-xxl-enc-bf16.safetensors\",\n      \"precision\": \"bf16\",\n      \"load_device\": \"main_device\",\n      \"quantization\": \"disabled\"\n    },\n    \"class_type\": \"LoadWanVideoT5TextEncoder\",\n    \"_meta\": {\n      \"title\": \"WanVideo T5 Text Encoder Loader\"\n    }\n  },\n  \"16\": {\n    \"inputs\": {\n      \"positive_prompt\": [\n        \"113\",\n        0\n      ],\n      \"negative_prompt\": \"色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走\",\n      \"force_offload\": true,\n      \"use_disk_cache\": true,\n      \"device\": \"gpu\",\n      \"t5\": [\n        \"11\",\n        0\n      ],\n      \"model_to_offload\": [\n        \"22\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoTextEncode\",\n    \"_meta\": {\n      \"title\": \"WanVideo TextEncode\"\n    }\n  },\n  \"22\": {\n    \"inputs\": {\n      \"model\": \"Wan2_1-I2V-14B-Bindweave_fp16.safetensors\",\n      \"base_precision\": \"fp16\",\n      \"quantization\": \"fp8_e5m2\",\n      \"load_device\": \"offload_device\",\n      \"attention_mode\": \"sageattn\",\n      \"rms_norm_function\": \"default\",\n      \"compile_args\": [\n        \"35\",\n        0\n      ],\n      \"lora\": [\n        \"114\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoModelLoader\",\n    \"_meta\": {\n      \"title\": \"WanVideo Model Loader\"\n    }\n  },\n  \"27\": {\n    \"inputs\": {\n      \"steps\": 4,\n      \"cfg\": 1,\n      \"shift\": 5,\n      \"seed\": 690781167181541,\n      \"force_offload\": true,\n      \"scheduler\": \"dpm++_sde\",\n      \"riflex_freq_index\": 0,\n      \"denoise_strength\": 1,\n      \"batched_cfg\": \"\",\n      \"rope_function\": \"comfy\",\n      \"start_step\": 0,\n      \"end_step\": -1,\n      \"add_noise_to_samples\": false,\n      \"model\": [\n        \"70\",\n        0\n      ],\n      \"image_embeds\": [\n        \"71\",\n        0\n      ],\n      \"text_embeds\": [\n        \"16\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoSampler\",\n    \"_meta\": {\n      \"title\": \"WanVideo Sampler\"\n    }\n  },\n  \"28\": {\n    \"inputs\": {\n      \"enable_vae_tiling\": false,\n      \"tile_x\": 272,\n      \"tile_y\": 272,\n      \"tile_stride_x\": 144,\n      \"tile_stride_y\": 128,\n      \"normalization\": \"default\",\n      \"vae\": [\n        \"38\",\n        0\n      ],\n      \"samples\": [\n        \"27\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoDecode\",\n    \"_meta\": {\n      \"title\": \"WanVideo Decode\"\n    }\n  },\n  \"35\": {\n    \"inputs\": {\n      \"backend\": \"inductor\",\n      \"fullgraph\": false,\n      \"mode\": \"default\",\n      \"dynamic\": false,\n      \"dynamo_cache_size_limit\": 64,\n      \"compile_transformer_blocks_only\": true,\n      \"dynamo_recompile_limit\": 128,\n      \"force_parameter_static_shapes\": false,\n      \"allow_unmerged_lora_compile\": false\n    },\n    \"class_type\": \"WanVideoTorchCompileSettings\",\n    \"_meta\": {\n      \"title\": \"WanVideo Torch Compile Settings\"\n    }\n  },\n  \"38\": {\n    \"inputs\": {\n      \"model_name\": \"wan_2.1_vae.safetensors\",\n      \"precision\": \"bf16\"\n    },\n    \"class_type\": \"WanVideoVAELoader\",\n    \"_meta\": {\n      \"title\": \"WanVideo VAE Loader\"\n    }\n  },\n  \"39\": {\n    \"inputs\": {\n      \"blocks_to_swap\": 12,\n      \"offload_img_emb\": false,\n      \"offload_txt_emb\": false,\n      \"use_non_blocking\": true,\n      \"vace_blocks_to_swap\": 0,\n      \"prefetch_blocks\": 0,\n      \"block_swap_debug\": false\n    },\n    \"class_type\": \"WanVideoBlockSwap\",\n    \"_meta\": {\n      \"title\": \"WanVideo Block Swap\"\n    }\n  },\n  \"58\": {\n    \"inputs\": {\n      \"image\": \"给王翔口交视角图片_00013_.png\"\n    },\n    \"class_type\": \"LoadImage\",\n    \"_meta\": {\n      \"title\": \"加载图像\"\n    }\n  },\n  \"59\": {\n    \"inputs\": {\n      \"clip_name\": \"clip_vision_h.safetensors\"\n    },\n    \"class_type\": \"CLIPVisionLoader\",\n    \"_meta\": {\n      \"title\": \"加载CLIP视觉\"\n    }\n  },\n  \"63\": {\n    \"inputs\": {\n      \"width\": [\n        \"68\",\n        1\n      ],\n      \"height\": [\n        \"68\",\n        2\n      ],\n      \"num_frames\": 113,\n      \"noise_aug_strength\": 0,\n      \"start_latent_strength\": 1,\n      \"end_latent_strength\": 1,\n      \"force_offload\": true,\n      \"fun_or_fl2v_model\": false,\n      \"tiled_vae\": false,\n      \"vae\": [\n        \"38\",\n        0\n      ],\n      \"clip_embeds\": [\n        \"65\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoImageToVideoEncode\",\n    \"_meta\": {\n      \"title\": \"WanVideo ImageToVideo Encode\"\n    }\n  },\n  \"65\": {\n    \"inputs\": {\n      \"strength_1\": 1,\n      \"strength_2\": 1,\n      \"crop\": \"center\",\n      \"combine_embeds\": \"average\",\n      \"force_offload\": true,\n      \"tiles\": 0,\n      \"ratio\": 0.20000000000000004,\n      \"clip_vision\": [\n        \"59\",\n        0\n      ],\n      \"image_1\": [\n        \"75\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoClipVisionEncode\",\n    \"_meta\": {\n      \"title\": \"WanVideo ClipVision Encode\"\n    }\n  },\n  \"68\": {\n    \"inputs\": {\n      \"width\": [\n        \"108\",\n        0\n      ],\n      \"height\": [\n        \"109\",\n        0\n      ],\n      \"upscale_method\": \"lanczos\",\n      \"keep_proportion\": \"pad\",\n      \"pad_color\": \"0, 0, 0\",\n      \"crop_position\": \"center\",\n      \"divisible_by\": 16,\n      \"device\": \"cpu\",\n      \"image\": [\n        \"75\",\n        0\n      ],\n      \"mask\": [\n        \"75\",\n        1\n      ]\n    },\n    \"class_type\": \"ImageResizeKJv2\",\n    \"_meta\": {\n      \"title\": \"Resize Image v2\"\n    }\n  },\n  \"70\": {\n    \"inputs\": {\n      \"model\": [\n        \"22\",\n        0\n      ],\n      \"block_swap_args\": [\n        \"39\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoSetBlockSwap\",\n    \"_meta\": {\n      \"title\": \"WanVideo Set BlockSwap\"\n    }\n  },\n  \"71\": {\n    \"inputs\": {\n      \"embeds\": [\n        \"63\",\n        0\n      ],\n      \"reference_latents\": [\n        \"74\",\n        0\n      ],\n      \"ref_masks\": [\n        \"80\",\n        0\n      ],\n      \"qwenvl_embeds_pos\": [\n        \"85\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoAddBindweaveEmbeds\",\n    \"_meta\": {\n      \"title\": \"WanVideo Add Bindweave Embeds\"\n    }\n  },\n  \"74\": {\n    \"inputs\": {\n      \"enable_vae_tiling\": false,\n      \"tile_x\": 272,\n      \"tile_y\": 272,\n      \"tile_stride_x\": 144,\n      \"tile_stride_y\": 128,\n      \"vae\": [\n        \"38\",\n        0\n      ],\n      \"images\": [\n        \"68\",\n        0\n      ]\n    },\n    \"class_type\": \"WanVideoEncodeLatentBatch\",\n    \"_meta\": {\n      \"title\": \"WanVideo Encode Latent Batch\"\n    }\n  },\n  \"75\": {\n    \"inputs\": {\n      \"model\": \"RMBG-2.0\",\n      \"sensitivity\": 1,\n      \"process_res\": 512,\n      \"mask_blur\": 0,\n      \"mask_offset\": 0,\n      \"invert_output\": false,\n      \"refine_foreground\": false,\n      \"background\": \"Color\",\n      \"background_color\": [\n        \"79\",\n        0\n      ],\n      \"image\": [\n        \"58\",\n        0\n      ]\n    },\n    \"class_type\": \"RMBG\",\n    \"_meta\": {\n      \"title\": \"去除背景 (RMBG)\"\n    }\n  },\n  \"77\": {\n    \"inputs\": {\n      \"mask\": [\n        \"68\",\n        3\n      ]\n    },\n    \"class_type\": \"MaskPreview+\",\n    \"_meta\": {\n      \"title\": \"🔧 Mask Preview\"\n    }\n  },\n  \"78\": {\n    \"inputs\": {\n      \"images\": [\n        \"68\",\n        0\n      ]\n    },\n    \"class_type\": \"PreviewImage\",\n    \"_meta\": {\n      \"title\": \"预览图像\"\n    }\n  },\n  \"79\": {\n    \"inputs\": {\n      \"preset\": \"black\",\n      \"color\": \"\"\n    },\n    \"class_type\": \"AILab_ColorInput\",\n    \"_meta\": {\n      \"title\": \"颜色输入 (RMBG) 🎨\"\n    }\n  },\n  \"80\": {\n    \"inputs\": {\n      \"mask\": [\n        \"68\",\n        3\n      ]\n    },\n    \"class_type\": \"InvertMask\",\n    \"_meta\": {\n      \"title\": \"反转遮罩\"\n    }\n  },\n  \"81\": {\n    \"inputs\": {\n      \"mask\": [\n        \"80\",\n        0\n      ]\n    },\n    \"class_type\": \"MaskPreview\",\n    \"_meta\": {\n      \"title\": \"MaskPreview\"\n    }\n  },\n  \"85\": {\n    \"inputs\": {\n      \"prompt\": [\n        \"113\",\n        0\n      ],\n      \"clip\": [\n        \"87\",\n        0\n      ],\n      \"image\": [\n        \"68\",\n        0\n      ]\n    },\n    \"class_type\": \"TextImageEncodeQwenVL\",\n    \"_meta\": {\n      \"title\": \"TextImageEncodeQwenVL\"\n    }\n  },\n  \"87\": {\n    \"inputs\": {\n      \"clip_name\": \"qwen_2.5_vl_7b_fp8_scaled.safetensors\",\n      \"type\": \"qwen_image\",\n      \"device\": \"default\"\n    },\n    \"class_type\": \"CLIPLoader\",\n    \"_meta\": {\n      \"title\": \"加载CLIP\"\n    }\n  },\n  \"107\": {\n    \"inputs\": {\n      \"frame_rate\": 16,\n      \"loop_count\": 0,\n      \"filename_prefix\": \"WanVideoWrapper_I2V\",\n      \"format\": \"video/h264-mp4\",\n      \"pix_fmt\": \"yuv420p\",\n      \"crf\": 19,\n      \"save_metadata\": true,\n      \"trim_to_audio\": false,\n      \"pingpong\": false,\n      \"save_output\": true,\n      \"images\": [\n        \"28\",\n        0\n      ]\n    },\n    \"class_type\": \"VHS_VideoCombine\",\n    \"_meta\": {\n      \"title\": \"Video Combine 🎥🅥🅗🅢\"\n    }\n  },\n  \"108\": {\n    \"inputs\": {\n      \"value\": 648\n    },\n    \"class_type\": \"easy int\",\n    \"_meta\": {\n      \"title\": \"整数\"\n    }\n  },\n  \"109\": {\n    \"inputs\": {\n      \"value\": 1024\n    },\n    \"class_type\": \"easy int\",\n    \"_meta\": {\n      \"title\": \"整数\"\n    }\n  },\n  \"113\": {\n    \"inputs\": {\n      \"value\": \"c0wg1rl, he is rapidly bouncing on man's cock, he slides his cock deep inside his pussy with each bounce, he loves riding his hard cock, he moans with each bounce,\"\n    },\n    \"class_type\": \"PrimitiveStringMultiline\",\n    \"_meta\": {\n      \"title\": \"字符串（多行）\"\n    }\n  },\n  \"114\": {\n    \"inputs\": {\n      \"lora_0\": \"lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors\",\n      \"strength_0\": 1,\n      \"lora_1\": \"Wan_2_1_Cowgirl_i2v_lora.safetensors\",\n      \"strength_1\": 0.5,\n      \"lora_2\": \"Wan_2_1_Hip_Slammin_Assertive_Cowgirl.safetensors\",\n      \"strength_2\": 0.5,\n      \"lora_3\": \"none\",\n      \"strength_3\": 1,\n      \"lora_4\": \"none\",\n      \"strength_4\": 1,\n      \"low_mem_load\": false,\n      \"merge_loras\": true\n    },\n    \"class_type\": \"WanVideoLoraSelectMulti\",\n    \"_meta\": {\n      \"title\": \"WanVideo Lora Select Multi\"\n    }\n  }\n}\n"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "PreviewAny",
+      "pos": [
+        602.6707245941612,
+        246.2141544850617
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 71
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 63,
+      "type": "StringConcatenate",
+      "pos": [
+        503.6530834697913,
+        -100.60416052478755
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 68
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            70,
+            71
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "StringConcatenate"
+      },
+      "widgets_values": [
+        "",
+        "上面是 给出的工作流调用方法和说明 \n下面给你一个新的工作流内容",
+        ""
+      ]
+    },
+    {
+      "id": 60,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        67.89151831709796,
+        -557.454990015612
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "title": "之前给出的工作流调用方法和说明",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "根据您的需求，我修改了代码来处理HuggingFace数据集中的体育男孩提示文本，生成视频内容。以下是修改后的完整代码：\nimport os\nimport json\nimport subprocess\nimport tempfile\nimport argparse\nimport glob\nimport shutil\nimport random\nfrom datasets import load_dataset\n\n\ndef process_prompts_with_comfyui(dataset_name, prompt_column, comfyui_workflow_path, comfy_env_path, \n                               timeout_seconds=600, output_dir=\"ComfyUI/output\", input_dir=\"ComfyUI/input\",\n                               max_prompts=None):\n    \"\"\"\n    批量处理HuggingFace数据集中的体育男孩提示文本，生成视频内容\n    \n    Args:\n        dataset_name: HuggingFace数据集名称\n        prompt_column: 提示文本列名\n        comfyui_workflow_path: ComfyUI工作流JSON文件路径\n        comfy_env_path: Comfy环境路径\n        timeout_seconds: 超时时间（秒）\n        output_dir: 输出目录\n        input_dir: 输入目录\n        max_prompts: 最大处理提示数量（None表示处理所有）\n    \"\"\"\n    \n    # 验证路径\n    if not os.path.exists(comfy_env_path):\n        raise FileNotFoundError(f\"Comfy环境路径不存在: {comfy_env_path}\")\n    \n    # 创建目录\n    os.makedirs(input_dir, exist_ok=True)\n    os.makedirs(output_dir, exist_ok=True)\n    \n    # 加载数据集\n    print(f\"📊 正在加载数据集: {dataset_name}\")\n    dataset = load_dataset(dataset_name)\n    \n    # 获取训练集（通常包含提示文本）\n    train_dataset = dataset['train'] if 'train' in dataset else dataset[list(dataset.keys())[0]]\n    \n    # 获取提示文本数据\n    prompts_data = train_dataset[prompt_column]\n    \n    # 限制处理数量\n    if max_prompts and max_prompts < len(prompts_data):\n        prompts_data = prompts_data[:max_prompts]\n    \n    print(f\"✅ 找到 {len(prompts_data)} 条体育男孩提示文本\")\n    \n    if not prompts_data:\n        raise ValueError(f\"数据集中没有找到提示文本数据（列名: {prompt_column}）\")\n    \n    # 加载工作流\n    with open(comfyui_workflow_path, 'r', encoding='utf-8') as f:\n        workflow = json.load(f)\n    \n    print(\"=\" * 60)\n    \n    # 处理每个提示文本\n    for idx, prompt_text in enumerate(prompts_data):\n        try:\n            print(f\"🔄 处理体育男孩提示 {idx + 1}/{len(prompts_data)}\")\n            print(f\"📝 提示文本: {prompt_text[:100]}...\")\n            print(f\"🎬 生成视频内容\")\n            \n            # 处理单次运行\n            success = process_single_run(\n                workflow, comfy_env_path, timeout_seconds,\n                prompt_text=prompt_text,\n                filename_prefix=f\"sports_boy_video_{idx:06d}\",\n                run_type=f\"prompt_{idx:06d}\",\n                idx=idx\n            )\n            \n            # 进度显示\n            progress = (idx + 1) / len(prompts_data) * 100\n            status = \"✅ 成功\" if success else \"❌ 失败\"\n            print(f\"📈 进度: {idx + 1}/{len(prompts_data)} ({progress:.1f}%) - {status}\")\n            print(\"-\" * 50)\n            \n        except Exception as e:\n            print(f\"💥 处理体育男孩提示 {idx + 1} 时出错: {str(e)}\")\n            continue\n\n\ndef process_single_run(workflow, comfy_env_path, timeout_seconds,\n                      prompt_text, filename_prefix, run_type, idx):\n    \"\"\"\n    单次处理运行\n    \n    Returns:\n        bool: 处理是否成功\n    \"\"\"\n    # 复制工作流\n    modified_workflow = json.loads(json.dumps(workflow))\n    \n    # 更新提示文本到节点113的value输入\n    modified_workflow[\"113\"][\"inputs\"][\"value\"] = prompt_text\n    \n    # 更新输出文件名前缀\n    if \"107\" in modified_workflow:\n        modified_workflow[\"107\"][\"inputs\"][\"filename_prefix\"] = filename_prefix\n    \n    # 关键修复：在try块外初始化变量\n    temp_workflow_path = None\n    \n    try:\n        # 创建临时工作流文件\n        with tempfile.NamedTemporaryFile(mode='w', suffix='极.json', delete=False, encoding='utf-8') as temp_file:\n            json.dump(modified_workflow, temp_file, indent=2)\n            temp_workflow_path = temp_file.name\n        \n        # 构建命令\n        cmd = [comfy_env_path, \"run\", \"--workflow\", temp_workflow_path, \"--wait\", \"--timeout\", str(timeout_seconds)]\n        \n        print(f\"   🎯 运行类型: {run_type}\")\n        print(f\"   📝 提示文本: {prompt_text[:100]}...\")\n        print(f\"   💾 输出前缀: {filename_prefix}\")\n        print(f\"   ⚡ 执行命令: {' '.join(cmd)}\")\n        \n        # 执行命令并捕获输出\n        result = subprocess.run(\n            cmd, \n            capture_output=True, \n            text=True, \n            timeout=timeout_seconds + 30\n        )\n        \n        # 格式化输出结果\n        print(f\"   📋 返回码: {result.returncode}\")\n        \n        if result.stdout:\n            stdout_lines = [line for line in result.stdout.strip().split('\\n') if line.strip()]\n            if stdout_lines:\n                print(f\"   标准输出: {stdout_lines[-1][:100]}...\")\n        \n        if result.stderr:\n            stderr_lines = [line for line in result.stderr.strip().split('\\n') if line.strip()]\n            if stderr_lines:\n                print(f\"   错误输出: {stderr_lines[-1][:100]}...\")\n        \n        success = result.returncode == 0\n        status_icon = \"✅\" if success else \"❌\"\n        print(f\"   {status_icon} 处理{'成功' if success else '失败'}\")\n        \n        return success\n            \n    except subprocess.TimeoutExpired:\n        print(\"   ⏰ 处理超时\")\n        return False\n    except Exception as e:\n        print(f\"   💥 异常: {str(e)}\")\n        return False\n    finally:\n        # 关键修复：安全地清理临时文件\n        if temp_workflow_path is not None and os.path.exists(temp_workflow_path):\n            try:\n                os.unlink(temp_workflow_path)\n                print(f\"   🗑️  已清理临时工作流文件: {os.path.basename(temp_workflow_path)}\")\n            except Exception as e:\n                print(f\"   ⚠️  清理临时文件时出错: {str(e)}\")\n\n\ndef main():\n    parser = argparse.ArgumentParser(description='🎬 批量处理体育男孩提示文本生成视频内容')\n    \n    parser.add_argument('--dataset', type=str, required=True,\n                       help='📊 HuggingFace数据集名称（如: svjack/Sports_Boy_Prompts）')\n    \n    parser.add_argument('--prompt-column', type=str, required=True,\n                       help='📝 提示文本列名（如: prompt）')\n    \n    parser.add_argument('--workflow', type=str, required=True,\n                       help='🔧 ComfyUI工作流JSON文件路径')\n    \n    parser.add_argument('--comfy-env', type=str, required=True,\n                       help='🐍 Comfy环境路径（必须设置）')\n    \n    parser.add_argument('--timeout', type=int, default=600,\n                       help='⏱️  超时时间（秒），默认600')\n    \n    parser.add_argument('--max-prompts', type=int, default=None,\n                       help='🔢 最大处理提示数量（默认处理所有）')\n    \n    parser.add_argument('--output-dir', type=str, default='ComfyUI/output',\n                       help='📁 输出目录')\n    \n    parser.add_argument('--input-dir', type=str, default='ComfyUI/input',\n                       help='📂 输入目录')\n    \n    args = parser.parse_args()\n    \n    # 验证参数\n    if args.timeout <= 0:\n        raise ValueError(\"超时时间必须大于0秒\")\n    \n    if args.max_prompts and args.max_prompts <= 0:\n        raise ValueError(\"最大提示数量必须大于0\")\n    \n    # 显示配置\n    print(\"🚀 开始执行体育男孩提示文本视频生成处理\")\n    print(\"=\" * 60)\n    print(\"📋 配置信息:\")\n    print(f\"   📊 数据集: {args.dataset}\")\n    print(f\"   📝 提示列: {args.prompt_column}\")\n    print(f\"   🔧 工作流: {args.workflow}\")\n    print(f\"   🐍 Comfy环境: {args.comfy_env}\")\n    print(f\"   ⏱️  超时时间: {args.timeout}秒\")\n    print(f\"   🔢 最大提示: {args.max_prompts or '所有'}\")\n    print(f\"   📁 输出目录: {args.output_dir}\")\n    print(f\"   📂 输入目录: {args.input_dir}\")\n    print(\"=\" * 60)\n    \n    try:\n        # 处理提示文本\n        process_prompts_with_comfyui(\n            dataset_name=args.dataset,\n            prompt_column=args.prompt_column,\n            comfyui_workflow_path=args.workflow,\n            comfy_env_path=args.comfy_env,\n            timeout_seconds=args.timeout,\n            output_dir=args.output_dir,\n            input_dir=args.input_dir,\n            max_prompts=args.max_prompts\n        )\n        \n        print(\"🎉 所有体育男孩提示文本视频生成处理完成！\")\n        \n    except Exception as e:\n        print(f\"💥 错误: {str(e)}\")\n        return 1\n    \n极    return 0\n\n\nif __name__ == \"__main__\":\n    exit(main())\n主要修改内容：\n🔧 核心修改：\nHuggingFace数据集支持：\n加载 svjack/Sports_Boy_Prompts数据集\n提取 prompt列的体育男孩提示文本数据\n自动处理文本提示生成视频内容\n工作流适配：\n将体育男孩提示文本设置到节点113的 value输入中\n更新视频保存节点的文件名前缀（节点107）\n视频生成处理：\n使用WanVideo模型根据文本提示生成视频内容\n应用图像到视频（I2V）转换技术\n生成体育男孩相关的运动视频内容\n技术特点：\n模型: Wan2.1-I2V-14B-Bindweave-FP16\nLoRA: LightX2V-I2V-14B（轻量级视频生成）\n采样器: DPM++ SDE（4步）\nVAE: Wan2.1-VAE-BF16\n文本编码器: UMT5-XXL-BF16\nCLIP视觉: CLIP-Vision-H\n📋 使用方法：\n# 安装依赖\npip install datasets\n\n# 运行脚本\npython script.py \\\n    --dataset \"svjack/Sports_Boy_Prompts\" \\\n    --prompt-column \"prompt\" \\\n    --workflow \"your_workflow.json\" \\\n    --comfy-env \"path/to/comfy\" \\\n    --max-prompts 10  # 可选：限制处理数量\n🎯 处理流程：\n输入：从数据集的 prompt列读取体育男孩提示文本\n文本编码：使用UMT5文本编码器处理提示文本\n图像编码：使用CLIP视觉编码器处理参考图像\n视频生成：使用WanVideo模型生成视频内容\n视频合成：将生成的帧合成为完整视频\n输出：生成体育男孩相关的运动视频\n📊 输出文件：\n视频文件：sports_boy_video_000001.mp4（H.264编码）\n帧率: 16FPS\n分辨率: 648x1024像素\n时长: 81帧（约5秒）\n🏃 体育男孩内容：\n这个工作流专门生成体育男孩相关的视频内容，特点包括：\n运动场景：举重、健身、体育训练等\n服装特征：白色T恤、蓝色短裤、护腕等\n环境背景：房间、床、衣柜等室内环境\n动作表现： deliberate and controlled movements（刻意控制的动作）\n技术焦点： proper form and technique（正确的姿势和技术）\n🔧 技术规格：\n模型大小: 14B参数（Bindweave架构）\n处理步骤: 4步（DPM++ SDE采样器）\nCFG强度: 1.0\n帧数: 81帧\n分辨率: 648x1024\n视频格式: H.264/MP4\n🎨 提示文本示例：\n提示文本通常描述体育男孩的运动场景，例如：\n\"举重练习，穿着白色T恤和蓝色短裤\"\n\"在房间中进行重量训练，背景有床和衣柜\"\n\"使用杠铃进行肩部推举和过头举重\"\n\"注重正确姿势和技术的有控制动作\"\n这个脚本能够根据体育男孩的文本提示生成高质量的视频内容，适合制作运动教学视频、体育内容创作或健身指导材料。视频生成技术能够根据文本描述创建逼真的运动场景和动作序列。"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "PreviewAny",
+      "pos": [
+        1252.757695999466,
+        -394.20792486647355
+      ],
+      "size": [
+        417.8919540229833,
+        290.71997126436406
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 62
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "PreviewAny",
+      "pos": [
+        1259.969003470729,
+        27.322319386392756
+      ],
+      "size": [
+        324.8553160919505,
+        280.4482758620654
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 63
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 45,
+      "type": "OllamaChat",
+      "pos": [
+        957.119137931035,
+        -308.73768678160917
+      ],
+      "size": [
+        210,
+        510
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "connectivity",
+          "shape": 7,
+          "type": "OLLAMA_CONNECTIVITY",
+          "link": 49
+        },
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "OLLAMA_OPTIONS",
+          "link": null
+        },
+        {
+          "name": "images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "meta",
+          "shape": 7,
+          "type": "OLLAMA_META",
+          "link": null
+        },
+        {
+          "name": "history",
+          "shape": 7,
+          "type": "OLLAMA_HISTORY",
+          "link": null
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 70
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "STRING",
+          "links": [
+            62,
+            72
+          ]
+        },
+        {
+          "name": "thinking",
+          "type": "STRING",
+          "links": [
+            63
+          ]
+        },
+        {
+          "name": "meta",
+          "type": "OLLAMA_META",
+          "links": []
+        },
+        {
+          "name": "history",
+          "type": "OLLAMA_HISTORY",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-ollama",
+        "ver": "2.0.7",
+        "Node name for S&R": "OllamaChat",
+        "aux_id": "stavsap/comfyui-ollama"
+      },
+      "widgets_values": [
+        "你是一个代码修改专家",
+        "使用中文描述两个男孩进行肛交的场景，注意描写阴茎插入肛门的动作 什么样",
+        false,
+        "text",
+        true
+      ]
+    },
+    {
+      "id": 67,
+      "type": "Save Text File",
+      "pos": [
+        1692.413675973453,
+        -36.32048899194493
+      ],
+      "size": [
+        306.1015625,
+        202
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 72
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "aux_id": "WASasquatch/was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Save Text File"
+      },
+      "widgets_values": [
+        "output",
+        "",
+        "code",
+        4,
+        ".md",
+        "utf-8",
+        ""
+      ]
+    },
+    {
+      "id": 62,
+      "type": "StringConcatenate",
+      "pos": [
+        68.21491831709703,
+        324.64615696713093
+      ],
+      "size": [
+        427.2120655172409,
+        339.34001867815834
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.70",
+        "Node name for S&R": "StringConcatenate"
+      },
+      "widgets_values": [
+        "",
+        "更改这个工作流 将   \"58\": {\n    \"inputs\": {\n      \"image\": \"_00013_.png\"\n    },\n    \"class_type\": \"LoadImage\",\n    \"_meta\": {\n      \"title\": \"加载图像\"\n    }\n  }, 中的image 替换为 文件夹 im0 和 im1 中的png文件 （依次各取一个，直到所有的都取完）仿造上面 工作流调用方法和说明 ,给出你修改后的代码",
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      49,
+      47,
+      0,
+      45,
+      0,
+      "OLLAMA_CONNECTIVITY"
+    ],
+    [
+      62,
+      45,
+      0,
+      53,
+      0,
+      "*"
+    ],
+    [
+      63,
+      45,
+      1,
+      54,
+      0,
+      "*"
+    ],
+    [
+      66,
+      60,
+      0,
+      61,
+      0,
+      "STRING"
+    ],
+    [
+      67,
+      59,
+      0,
+      62,
+      0,
+      "STRING"
+    ],
+    [
+      68,
+      61,
+      0,
+      63,
+      0,
+      "STRING"
+    ],
+    [
+      69,
+      62,
+      0,
+      63,
+      1,
+      "STRING"
+    ],
+    [
+      70,
+      63,
+      0,
+      45,
+      5,
+      "STRING"
+    ],
+    [
+      71,
+      63,
+      0,
+      64,
+      0,
+      "*"
+    ],
+    [
+      72,
+      45,
+      0,
+      67,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6626308910734289,
+      "offset": [
+        150.37874463939323,
+        435.1140092517966
+      ]
+    },
+    "frontendVersion": "1.28.8",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "groupNodes": {}
+  },
+  "version": 0.4
+}
